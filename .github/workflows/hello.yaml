@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: greeting
         uses: actions/checkout@v4
-      - run: echo ${{ inputs.name }}
+      - run: echo "Hello ${{ inputs.name }}"
