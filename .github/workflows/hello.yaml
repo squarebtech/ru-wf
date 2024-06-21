@@ -1,0 +1,16 @@
+name: Hello
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: Name of person to say hello to
+        required: true
+        type: string
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: greeting
+        uses: actions/checkout@v4
+      - run: echo ${{ inputs.name }}
