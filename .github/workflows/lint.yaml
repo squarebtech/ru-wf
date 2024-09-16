@@ -1,27 +1,38 @@
 name: Reusable ESLint Workflow
+# on:
+#   workflow_call:
+#     inputs:
+#       node-version:
+#         description: Node.js version
+#         type: string
+#         required: false
+#         default: '20'
 on:
-  workflow_call:
-    inputs:
-      node-version:
-        description: Node.js version
-        type: string
-        required: false
-        default: '20'
+  pull_request:
+    paths:
+      - '**/*.js'
+  push:
+    branches:
+      - main
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    uses: squarebtech/eslint/.github/workflows/eslint.yaml@main
+    with:
+      node-version: '20'
+      working-directory: './'
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Checkout Repository
+    #     uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ inputs.node-version }}
+    #   - name: Setup Node.js
+    #     uses: actions/setup-node@v4
+    #     with:
+    #       node-version: ${{ inputs.node-version }}
 
-      - name: Install dependencies
-        run: npm install
+    #   - name: Install dependencies
+    #     run: npm install
 
-      - name: Run ESLint
-        run: npx eslint .
+    #   - name: Run ESLint
+    #     run: npx eslint .
