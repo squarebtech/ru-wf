@@ -10,7 +10,7 @@ name: Reusable ESLint Workflow
 on:
   pull_request:
     paths:
-      - '**/*.js'
+      - "**/*.js"
   push:
     branches:
       - main
@@ -19,13 +19,13 @@ jobs:
   format:
     uses: squarebtech/reusable-workflows/.github/workflows/test-prettier.yaml@main
     with:
-      node-version: '20'
-      working-directory: './'
+      node-version: "20"
+      working-directory: "./"
   lint:
     uses: squarebtech/reusable-workflows/.github/workflows/test-eslint.yaml@main
     with:
-      node-version: '20'
-      working-directory: './'
+      node-version: "20"
+      working-directory: "./"
     # runs-on: ubuntu-latest
     # steps:
     #   - name: Checkout Repository
