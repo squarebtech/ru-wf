@@ -17,7 +17,7 @@ on:
 
 jobs:
   lint:
-    uses: squarebtech/reusable-workflows/.github/workflows/test/eslint.yaml@main
+    uses: squarebtech/reusable-workflows/.github/workflows/test-eslint.yaml@main
     with:
       node-version: '20'
       working-directory: './'
