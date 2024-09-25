@@ -16,6 +16,11 @@ on:
       - main
 
 jobs:
+  format:
+    uses: squarebtech/reusable-workflows/.github/workflows/test-prettier.yaml@main
+    with:
+      node-version: '20'
+      working-directory: './'
   lint:
     uses: squarebtech/reusable-workflows/.github/workflows/test-eslint.yaml@main
     with:
